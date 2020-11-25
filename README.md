@@ -1,1 +1,1 @@
-Flight search API
+Flight MS API
