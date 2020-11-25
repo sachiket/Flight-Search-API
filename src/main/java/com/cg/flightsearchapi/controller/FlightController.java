@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cg.flightsearchapi.entity.Flights;
+import com.cg.flightsearchapi.entity.Flight;
 import com.cg.flightsearchapi.exception.NullValueException;
 import com.cg.flightsearchapi.service.FlightSearchService;
 
@@ -19,19 +19,19 @@ import com.cg.flightsearchapi.service.FlightSearchService;
 
 
 @RestController
-@RequestMapping
+@RequestMapping("/flight_management")
 public class FlightController {
 
 	@Autowired
 	FlightSearchService flightSearchService;
 	
-	@GetMapping("/viewFlights")
-	public List<Flights> getAllFlights() {
-       return flightSearchService.viewFlights();
+	@GetMapping("/viewAllFlights")
+	public List<Flight> getAllFlights() {
+       return flightSearchService.viewAllFlights();
     }
 	
 	@GetMapping("/getFlightBySourceDestinationDate")
-	public List<Flights> getFlightBySourceDestinationDate(@RequestParam String source , @RequestParam String destination, @RequestParam String date) {
+	public List<Flight> getFlightBySourceDestinationDate(@RequestParam String source , @RequestParam String destination, @RequestParam String date) {
 		if (source.equals("") || destination.equals("") || date.equals("")) {
 			throw new NullValueException("Please provide correct details!");
 		}
@@ -39,7 +39,7 @@ public class FlightController {
 	}
 	
 	@PostMapping("/addflight")
-	public String addFlight(@RequestBody Flights flight) throws Exception {
+	public String addFlight(@RequestBody Flight flight) throws Exception {
 		return flightSearchService.addFlight(flight);
 	}
 	

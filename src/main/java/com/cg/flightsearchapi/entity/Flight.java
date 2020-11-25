@@ -9,8 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name ="Flights")
-public class Flights {
+@Table(name ="flight_table")
+public class Flight {
 	
 	@Id
 	@Column(name ="Flight_id")
@@ -32,11 +32,11 @@ public class Flights {
 	private double fare;
 
 	
-	public Flights() {
+	public Flight() {
 		
 	}
 
-	public Flights(String flightId, String flightName,String source,String destination,
+	public Flight(String flightId, String flightName,String source,String destination,
 			String date,double fare) {
 		super();
 		this.flightId=flightId;

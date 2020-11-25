@@ -34,15 +34,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 		}
 		
 		
-		@ExceptionHandler(DateException.class)
-		public final ResponseEntity<ErrorMessage> wrongDate(DateException ex){
 
-			ErrorMessage exceptionResponse =
-					new ErrorMessage(ex.getMessage(), 
-							errorMsg,currentTimeMillis);
-			return new ResponseEntity<ErrorMessage>(exceptionResponse,
-					new HttpHeaders(),HttpStatus.BAD_REQUEST);
-		}
 		
 		@ExceptionHandler(FlightNotFoundException.class)
 		public final ResponseEntity<ErrorMessage> flightNotFound(FlightNotFoundException ex){

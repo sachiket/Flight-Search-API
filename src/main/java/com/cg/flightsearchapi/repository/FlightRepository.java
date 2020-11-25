@@ -10,17 +10,17 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.cg.flightsearchapi.entity.Flights;
+import com.cg.flightsearchapi.entity.Flight;
 
 
 
 @Repository
-public interface FlightRepository extends JpaRepository<Flights, String> {
+public interface FlightRepository extends JpaRepository<Flight, String> {
 	
 	@Modifying
-	@Query("SELECT opm FROM Flights opm WHERE opm.source=:source and opm.destination=:destination and opm.date=:date")
+	@Query("SELECT opm FROM Flight opm WHERE opm.source=:source and opm.destination=:destination and opm.date=:date")
 	@Transactional
-	List<Flights> findBySourceDestinationDate(String source, String destination, String date);
+	List<Flight> findBySourceDestinationDate(String source, String destination, String date);
 
 
 }

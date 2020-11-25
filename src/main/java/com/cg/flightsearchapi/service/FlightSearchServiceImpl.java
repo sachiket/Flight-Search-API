@@ -9,7 +9,7 @@ import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cg.flightsearchapi.entity.Flights;
+import com.cg.flightsearchapi.entity.Flight;
 import com.cg.flightsearchapi.exception.FlightNotFoundException;
 import com.cg.flightsearchapi.repository.FlightRepository;
 
@@ -20,16 +20,16 @@ public class FlightSearchServiceImpl implements FlightSearchService {
     FlightRepository flightRepo;
 	
 	@Override
-	public List<Flights> viewFlights() {
+	public List<Flight> viewAllFlights() {
 	
 		return flightRepo.findAll();
 	
 	}
 
 	@Override
-	public List<Flights> getFlightBySourceDestinationDate(String source, String destination, String date) {
+	public List<Flight> getFlightBySourceDestinationDate(String source, String destination, String date) {
 		
-		List<Flights> flights = flightRepo.findBySourceDestinationDate(source, destination, date);
+		List<Flight> flights = flightRepo.findBySourceDestinationDate(source, destination, date);
 		
 		if(flights.size() != 0) {
 			return flights;
@@ -40,7 +40,7 @@ public class FlightSearchServiceImpl implements FlightSearchService {
 	}
 
 	@Override
-	public String addFlight(Flights flight) throws Exception {
+	public String addFlight(Flight flight) throws Exception {
 		Random rand = new Random(); 
 		int random = rand.nextInt(1000); 
 		//generating flight

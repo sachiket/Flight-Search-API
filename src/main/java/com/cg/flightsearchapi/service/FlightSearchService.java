@@ -2,17 +2,17 @@ package com.cg.flightsearchapi.service;
 
 import java.util.List;
 
-import com.cg.flightsearchapi.entity.Flights;
+import com.cg.flightsearchapi.entity.Flight;
 
 
 
 public interface FlightSearchService {
 
-	public List<Flights> viewFlights();
+	public List<Flight> viewAllFlights();
 
-	public  List<Flights> getFlightBySourceDestinationDate(String source, String destination, String date);
+	public  List<Flight> getFlightBySourceDestinationDate(String source, String destination, String date);
 
-	public String addFlight(Flights flight) throws Exception;
+	public String addFlight(Flight flight) throws Exception;
 
 	
 }
