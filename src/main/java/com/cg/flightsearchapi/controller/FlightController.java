@@ -32,6 +32,12 @@ public class FlightController {
        return flightSearchService.viewAllFlights();
     }
 	
+	@GetMapping("/getFlightById")
+	public Flight getFlightById(@RequestParam String id) {
+       return flightSearchService.getFlightById(id);
+    }
+	
+	
 	@GetMapping("/getFlightBySourceDestinationDate")
 	public List<Flight> getFlightBySourceDestinationDate(@RequestParam String source , @RequestParam String destination, @RequestParam String date) {
 		if (source.equals("") || destination.equals("") || date.equals("")) {

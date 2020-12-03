@@ -14,5 +14,7 @@ public interface FlightSearchService {
 
 	public String addFlight(Flight flight) throws Exception;
 
+	public Flight getFlightById(String id);
+
 	
 }
